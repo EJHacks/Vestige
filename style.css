@@ -1,5 +1,3 @@
-
-/* Main page layout: center content vertically and horizontally, set background color */
 body {
     display: flex;
     flex-direction: column;
@@ -8,7 +6,6 @@ body {
 }
 
 
-/* Game title styling */
 h1 {
     color: white;
     background-color: red;
@@ -17,7 +14,6 @@ h1 {
 }
 
 
-/* Layout for the control buttons */
 #controls {
     display: flex;
     justify-content: space-between;
@@ -26,14 +22,12 @@ h1 {
 }
 
 
-/* Button appearance */
 button {
     border-radius: 5px;
     padding: 15px;
 }
 
 
-/* Button hover effect */
 button:hover {
     background-color: chartreuse;
 }
