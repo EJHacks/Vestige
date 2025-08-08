@@ -39,7 +39,7 @@ async function drawCards() {
 }
 
 async function createDeck(callback) {
-  const url = "https://deckofcardsapi.com/api/deck/new/shuffle/?deck_count=1";
+  const url = "https://deckofcardsapi.com/api/deck/new/shuffle/?deck_count=2";
   const response = await fetch(url);
   const data = await response.json();
 
