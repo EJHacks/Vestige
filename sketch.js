@@ -1,45 +1,29 @@
-let cards = []
+let canvas;
+let cardImages = [];
 
-
-
-function setup(){
-    createCanvas(800,800); 
-    rectMode(CENTER);      
-    textAlign(CENTER);     
+function preload() {
 }
 
-
-function drawEmptyCardSlot(x,y){
-    stroke(255);      
-    fill(0);          
-    rect(x,y,100,160); 
+function setup() {
+  canvas = createCanvas(1000, 400);
+  canvas.parent('canvas-container');
+  background(0);
 }
 
+function renderCards(cards) {
+  clear();
+  background(0);
 
+  let imgWidth = 100;
+  let spacing = 120;
+  let numCards = cards.length;
+  let totalWidth = (numCards - 1) * spacing + imgWidth;
+  let startX = (width - totalWidth) / 2;
+  let y = 100;
 
-function drawCard(x,y,num,suit){
-    fill(255); 
-    rect(x,y,100,160); 
-    if(suit == "HEARTS" || suit == "DIAMONDS"){
-        fill(255,0,0); 
-    } else {
-        fill(0);       
-    }
-    textSize(20)       
-    text(suit,x,y);      
-    text(num,x,y + 30);  
-}
-
-
-function draw(){
-    background(0); 
-    for(i = 0; i < 5; i++){
-        let x = width/8 + (i * (width/4) * 0.75);
-        let y = height/2;
-        if(cards[i] != undefined){
-            drawCard(x, y, cards[i].value, cards[i].suit);
-        }  else {
-            drawEmptyCardSlot(x, y)
-        }
-    }
+  cards.forEach((card, i) => {
+    loadImage(card.image, img => {
+      image(img, startX + i * spacing, y, imgWidth, imgWidth * 1.4);
+    });
+  });
 }
